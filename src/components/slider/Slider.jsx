@@ -29,7 +29,7 @@ const Slider = ({ images, loading }) => {
 	useEffect(() => {
 		const slider = setInterval(() => {
 			setCurrentIndex((prev) => (prev + 1 > lastIndex ? 0 : prev + 1));
-		}, 5000);
+		}, 7500);
 
 		return () => clearInterval(slider);
 	}, [currentIndex, lastIndex]);

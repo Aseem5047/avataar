@@ -41,12 +41,12 @@
 	}
 
 	.visible {
-		@apply scale-150 z-30 w-[150%] md:w-[125%] h-full translate-x-0 mx-4;
+		@apply scale-150 z-30 w-[150%] md:w-[125%] h-full translate-x-0 mx-4 transition-all duration-1000 ease-linear;
 	}
 
 	.prevPrevious,
 	.nextNext {
-		@apply hidden lg:block w-1/3 h-full hover:scale-110;
+		@apply hidden lg:block w-1/3 h-full hover:scale-110 transition-all duration-1000 ease-linear;
 	}
 
 	.prevPrevious {
