@@ -1,6 +1,6 @@
 # Avataar Assessment
 
-### Deployed Site -  <a href="https://avataarx.vercel.app" target="_blank"> Avataar Assessment </a>
+### Deployed Site -  [https://avataarx.vercel.app]
 
 ## Requirement 1 - Dynamic Menu
 
