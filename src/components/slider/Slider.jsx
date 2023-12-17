@@ -6,6 +6,10 @@ const Slider = ({ images }) => {
 	// State to track the current index of the active slide
 	const [currentIndex, setCurrentIndex] = useState(0);
 
+	// State to track whether the image is still loading or has an error
+	const [imageLoading, setImageLoading] = useState(true);
+	const [imageError, setImageError] = useState(false);
+
 	// State and refs for handling drag interactions
 	const [startX, setStartX] = useState(null);
 	const [dragging, setDragging] = useState(false);
@@ -108,6 +112,12 @@ const Slider = ({ images }) => {
 
 	// ...
 
+	// Helper function to reset image loading and error state
+	const resetImageState = () => {
+		setImageLoading(true);
+		setImageError(false);
+	};
+
 	return (
 		<div className=" pt-16 xl:px-12 lg:pt-24 w-full overflow-clip min-h-[400px] sm:min-h-[450px] lg:min-h-[600px] flex flex-col gap-12 md:gap-16 items-center flex-1 grow ">
 			{/* Main Slider */}
@@ -137,10 +147,19 @@ const Slider = ({ images }) => {
 									className="rounded-xl shadow-lg h-full min-h-[200px] sm:min-h-[250px] lg:min-h-[300px] object-cover md:h-full cursor-grab"
 									onClick={() => setCurrentIndex(currentImageIndex)}
 									onDragStart={(e) => e.preventDefault()}
+									onLoad={resetImageState}
+									onError={() => {
+										setImageLoading(false);
+										setImageError(true);
+									}}
 								/>
 							</article>
 						);
 					})}
+
+				{/* Display a loading indicator or error message based on image loading state */}
+
+				{imageError && <p>Error loading image.</p>}
 				<NavigationButtons
 					direction="left"
 					onClick={() => setCurrentIndex(getImageIndex(currentIndex - 1))}
