@@ -4,9 +4,9 @@ const Loader = () => {
 	const loaders = Array.from({ length: 3 }, (_, index) => index);
 	return (
 		<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-center w-full  m-auto pb-4 px-10 lg:px-4 h-full">
-			{loaders.map((loader, index) => (
+			{loaders.map((_, index) => (
 				<div
-					className="border border-gray-300 shadow rounded-md p-4 max-w-sm lg:max-w-md w-full mx-auto h-[30rem] "
+					className="my-7 shadow rounded-md p-4 max-w-sm lg:max-w-md w-full mx-auto h-[30rem] "
 					key={index}
 				>
 					<div className="animate-pulse flex space-x-4">

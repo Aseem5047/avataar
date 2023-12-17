@@ -25,7 +25,7 @@ import {
 	Banner37,
 	Banner38,
 	Banner39,
-	Banner40,
+	// Banner40,
 } from "../assets/BannerImages/index";
 
 export const bannerImages = [
@@ -55,5 +55,5 @@ export const bannerImages = [
 	Banner37,
 	Banner38,
 	Banner39,
-	Banner40,
+	// Banner40,
 ];

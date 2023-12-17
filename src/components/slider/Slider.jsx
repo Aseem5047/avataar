@@ -3,7 +3,7 @@ import NavigationDots from "./NavigationDots";
 import NavigationButtons from "./NavigationButtons";
 import Loader from "./Loader";
 
-const Slider = ({ images }) => {
+const Slider = ({ images, loading }) => {
 	// State to track the current index of the active slide
 	const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -112,82 +112,94 @@ const Slider = ({ images }) => {
 
 	// ...
 
+	// reset the image loaded state
 	const resetImageState = () => {
 		setImagesLoaded(false); // Reset imagesLoaded state
 	};
 
 	return (
-		<div className=" pt-16 xl:px-12 lg:pt-24 w-full overflow-clip min-h-[400px] sm:min-h-[450px] lg:min-h-[600px] flex flex-col gap-12 md:gap-16 items-center flex-1 grow ">
-			{/* Main Slider */}
-			<div
-				className={`flex justify-center items-center ${
-					(currentIndex === 0 || currentIndex === lastIndex) &&
-					"flex-row-reverse"
-				}  relative w-full`}
-				onMouseDown={handleMouseDown}
-				onMouseMove={handleMouseMove}
-				onMouseUp={handleMouseUp}
-				onMouseLeave={handleMouseUp}
-				onTouchStart={handleTouchStart}
-				onTouchMove={handleTouchMove}
-				onTouchEnd={handleTouchEnd}
-			>
-				{images &&
-					images.map((image, currentImageIndex) => {
-						let adjustedIndex = getImageIndex(currentImageIndex);
-						const slideState = getSlideState(adjustedIndex);
+		<>
+			{loading ? (
+				<Loader />
+			) : (
+				<div className=" pt-16 xl:px-12 lg:pt-24 w-full overflow-clip min-h-[400px] sm:min-h-[450px] lg:min-h-[600px] flex flex-col gap-12 md:gap-16 items-center flex-1 grow ">
+					{/* Main Slider */}
+					<div
+						className={`flex justify-center items-center ${
+							(currentIndex === 0 || currentIndex === lastIndex) &&
+							"flex-row-reverse"
+						}  relative w-full`}
+						onMouseDown={handleMouseDown}
+						onMouseMove={handleMouseMove}
+						onMouseUp={handleMouseUp}
+						onMouseLeave={handleMouseUp}
+						onTouchStart={handleTouchStart}
+						onTouchMove={handleTouchMove}
+						onTouchEnd={handleTouchEnd}
+					>
+						{images &&
+							images.map((image, currentImageIndex) => {
+								let adjustedIndex = getImageIndex(currentImageIndex);
+								const slideState = getSlideState(adjustedIndex);
 
-						return (
-							<article key={image + adjustedIndex} className={` ${slideState}`}>
-								<img
-									src={image}
-									alt=""
-									className={`rounded-xl shadow-lg h-full min-h-[200px] sm:min-h-[250px] lg:min-h-[300px] object-cover md:h-full cursor-grab ${
-										imagesLoaded
-											? "opacity-100 transition-opacity duration-500 ease-in-out"
-											: "opacity-0"
-									}`}
-									onClick={() => setCurrentIndex(currentImageIndex)}
-									onDragStart={(e) => e.preventDefault()}
-									onLoad={() => {
-										resetImageState();
-										setImagesLoaded(true);
-									}}
-								/>
-							</article>
-						);
-					})}
+								return (
+									<article
+										key={image + adjustedIndex}
+										className={` ${slideState}`}
+									>
+										<img
+											src={image}
+											alt=""
+											className={`rounded-xl shadow-lg h-full min-h-[200px] sm:min-h-[250px] lg:min-h-[300px] object-cover md:h-full cursor-grab ${
+												imagesLoaded
+													? "opacity-100 transition-opacity duration-500 ease-in-out"
+													: "opacity-0"
+											}`}
+											onClick={() => setCurrentIndex(currentImageIndex)}
+											onDragStart={(e) => e.preventDefault()}
+											onLoad={() => {
+												resetImageState();
+												setImagesLoaded(true);
+											}}
+										/>
+									</article>
+								);
+							})}
 
-				<NavigationButtons
-					direction="left"
-					onClick={() => setCurrentIndex(getImageIndex(currentIndex - 1))}
-				/>
-				<NavigationButtons
-					direction="right"
-					onClick={() => setCurrentIndex(getImageIndex(currentIndex + 1))}
-				/>
-			</div>
+						{/* Banner navigation buttons */}
+						<NavigationButtons
+							direction="left"
+							onClick={() => setCurrentIndex(getImageIndex(currentIndex - 1))}
+						/>
+						<NavigationButtons
+							direction="right"
+							onClick={() => setCurrentIndex(getImageIndex(currentIndex + 1))}
+						/>
+					</div>
 
-			{/* Navigation Dots */}
+					{/* Navigation Dots */}
 
-			<div className="flex items-center justify-center gap-4 m-auto w-full p-4">
-				<NavigationButtons
-					direction="normalLeft"
-					onClick={() => setCurrentIndex(getImageIndex(currentIndex - 1))}
-				/>
-				<NavigationDots
-					images={images}
-					currentIndex={currentIndex}
-					setCurrentIndex={setCurrentIndex}
-					getImageIndex={getImageIndex}
-					activeDotRef={activeDotRef}
-				/>
-				<NavigationButtons
-					direction="normalRight"
-					onClick={() => setCurrentIndex(getImageIndex(currentIndex + 1))}
-				/>{" "}
-			</div>
-		</div>
+					<div className="flex items-center justify-center gap-4 m-auto w-full p-4">
+						<NavigationButtons
+							direction="normalLeft"
+							onClick={() => setCurrentIndex(getImageIndex(currentIndex - 1))}
+						/>
+						{/* Navigation Dots Buttons */}
+						<NavigationDots
+							images={images}
+							currentIndex={currentIndex}
+							setCurrentIndex={setCurrentIndex}
+							getImageIndex={getImageIndex}
+							activeDotRef={activeDotRef}
+						/>
+						<NavigationButtons
+							direction="normalRight"
+							onClick={() => setCurrentIndex(getImageIndex(currentIndex + 1))}
+						/>{" "}
+					</div>
+				</div>
+			)}
+		</>
 	);
 };
 
