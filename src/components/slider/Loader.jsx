@@ -1,12 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Loader = () => {
-	const loaders = Array.from({ length: 3 }, (_, index) => index);
+	const [numLoaders, setNumLoaders] = useState(3);
+
+	// Update the number of loaders based on the screen width
+	useEffect(() => {
+		const updateNumLoaders = () => {
+			const screenWidth = window.innerWidth;
+			let loaders;
+			if (screenWidth >= 1200) {
+				loaders = 3;
+			} else if (screenWidth >= 768) {
+				loaders = 2;
+			} else {
+				loaders = 1;
+			}
+			setNumLoaders(loaders);
+		};
+
+		// Initial update
+		updateNumLoaders();
+
+		// Listen for window resize events to update the number of loaders
+		window.addEventListener("resize", updateNumLoaders);
+
+		// Cleanup event listener on component unmount
+		return () => {
+			window.removeEventListener("resize", updateNumLoaders);
+		};
+	}, []);
+
+	const loaders = Array.from({ length: numLoaders }, (_, index) => index);
 	return (
-		<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-center w-full  m-auto pb-4 px-10 lg:px-4 h-full">
+		<div className="flex gap-4 items-center w-full m-auto pb-4 px-10 lg:px-4 h-full">
 			{loaders.map((_, index) => (
 				<div
-					className="my-7 shadow rounded-md p-4 max-w-sm lg:max-w-md w-full mx-auto h-[30rem] "
+					className="my-7 shadow rounded-md p-4 max-w-sm lg:max-w-md w-full mx-auto h-[30rem]"
 					key={index}
 				>
 					<div className="animate-pulse flex space-x-4">
