@@ -37,9 +37,6 @@ const UserData = () => {
 		<>
 			{/* Records and Pagination */}
 			<div className="flex flex-col justify-start w-full h-full overflow-auto no-scrollbar mx-1">
-				<h2 className="text-2xl text-start mb-4 font-semibold bg-blue-500 p-4 w-fit text-white rounded-xl m-auto">
-					UserData Records
-				</h2>
 				<Records data={currentRecords} />
 				<Pagination
 					nPages={nPages}

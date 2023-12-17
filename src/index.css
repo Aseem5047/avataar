@@ -24,7 +24,7 @@
 	.nextNext,
 	.lastSlide,
 	.firstSlide {
-		@apply transform transition-transform ease-linear duration-500;
+		@apply transform transition-transform ease-linear duration-1000;
 	}
 
 	.previous,

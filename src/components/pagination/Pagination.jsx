@@ -30,7 +30,7 @@ const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
 
 	return (
 		<>
-			<ul className="flex items-center justify-center py-5 mx-2">
+			<ul className="flex items-center justify-center py-4 mx-2">
 				<li className="page-item">
 					<button
 						onClick={goToPrevPage}
