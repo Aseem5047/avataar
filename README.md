@@ -1,5 +1,7 @@
 # Avataar Assessment
 
+### Deployed Site -  [Avataar Assessment](https://avataarx.vercel.app)
+
 ## Requirement 1 - Dynamic Menu
 
 ### Keeping the responsiveness of site in mind the extra links from navbar gets shifted to the "More Options" section inside the menu at top-right corner
