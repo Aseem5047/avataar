@@ -2,7 +2,7 @@
 
 ## Requirement 1 - Dynamic Menu
 
-#### Keeping the responsiveness of site in mind the extra links from navbar gets shifted to the "More Options" section inside the menu at top-right corner
+### Keeping the responsiveness of site in mind the extra links from navbar gets shifted to the "More Options" section inside the menu at top-right corner
 
 ![image](https://github.com/Aseem5047/avataar/assets/80787027/e4ef80b8-e21b-47bb-8e45-555f070b8076)
 
@@ -11,7 +11,7 @@
 
 ## Requirement 2 - Carousel
 
-#### Based on the available space the carousel displays maximum 4 more banner images other than the current banner
+### Based on the available space the carousel displays maximum 4 more banner images other than the current banner
 
 ![image](https://github.com/Aseem5047/avataar/assets/80787027/5a7e4fc0-3e1b-47a1-8d5d-2577628d251b)
 
