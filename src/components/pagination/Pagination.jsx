@@ -34,8 +34,9 @@ const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
 				<li className="page-item">
 					<button
 						onClick={goToPrevPage}
-						className="page-link bg-gray-300 px-3 py-1 rounded-lg mr-4 hover:bg-blue-500 hover:text-white"
-						disabled={currentPage === 1}
+						className={`page-link bg-gray-300 px-3 py-1 rounded-lg mr-4 hover:bg-blue-500 hover:text-white ${
+							currentPage === 1 && "hidden"
+						}`}
 					>
 						Previous
 					</button>
@@ -61,8 +62,9 @@ const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
 				<li className="page-item">
 					<button
 						onClick={goToNextPage}
-						className="page-link bg-gray-300 px-3 py-1 rounded-lg ml-4 hover:bg-blue-500 hover:text-white"
-						disabled={currentPage === nPages}
+						className={`page-link bg-gray-300 px-3 py-1 rounded-lg ml-4 hover:bg-blue-500 hover:text-white ${
+							currentPage === nPages && "hidden"
+						}`}
 					>
 						Next
 					</button>
