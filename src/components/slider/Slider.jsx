@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import NavigationDots from "./NavigationDots";
 import NavigationButtons from "./NavigationButtons";
+import Loader from "./Loader";
 
 const Slider = ({ images }) => {
 	// State to track the current index of the active slide
 	const [currentIndex, setCurrentIndex] = useState(0);
 
-	// State to track whether the image is still loading or has an error
-	const [imageLoading, setImageLoading] = useState(true);
-	const [imageError, setImageError] = useState(false);
+	// State to track whether the image is still loading or not
+	const [imagesLoaded, setImagesLoaded] = useState(false);
 
 	// State and refs for handling drag interactions
 	const [startX, setStartX] = useState(null);
@@ -112,10 +112,8 @@ const Slider = ({ images }) => {
 
 	// ...
 
-	// Helper function to reset image loading and error state
 	const resetImageState = () => {
-		setImageLoading(true);
-		setImageError(false);
+		setImagesLoaded(false); // Reset imagesLoaded state
 	};
 
 	return (
@@ -144,22 +142,22 @@ const Slider = ({ images }) => {
 								<img
 									src={image}
 									alt=""
-									className="rounded-xl shadow-lg h-full min-h-[200px] sm:min-h-[250px] lg:min-h-[300px] object-cover md:h-full cursor-grab"
+									className={`rounded-xl shadow-lg h-full min-h-[200px] sm:min-h-[250px] lg:min-h-[300px] object-cover md:h-full cursor-grab ${
+										imagesLoaded
+											? "opacity-100 transition-opacity duration-500 ease-in-out"
+											: "opacity-0"
+									}`}
 									onClick={() => setCurrentIndex(currentImageIndex)}
 									onDragStart={(e) => e.preventDefault()}
-									onLoad={resetImageState}
-									onError={() => {
-										setImageLoading(false);
-										setImageError(true);
+									onLoad={() => {
+										resetImageState();
+										setImagesLoaded(true);
 									}}
 								/>
 							</article>
 						);
 					})}
 
-				{/* Display a loading indicator or error message based on image loading state */}
-
-				{imageError && <p>Error loading image.</p>}
 				<NavigationButtons
 					direction="left"
 					onClick={() => setCurrentIndex(getImageIndex(currentIndex - 1))}
