@@ -58,14 +58,16 @@ const Navbar = () => {
 	const downIcon = (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			viewBox="0 0 20 20"
-			fill="currentColor"
+			fill="none"
+			viewBox="0 0 24 24"
+			strokeWidth={1.5}
+			stroke="currentColor"
 			className="w-5 h-5"
 		>
 			<path
-				fillRule="evenodd"
-				d="M14.77 4.21a.75.75 0 01.02 1.06l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 011.08-1.04L10 8.168l3.71-3.938a.75.75 0 011.06-.02zm0 6a.75.75 0 01.02 1.06l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 111.08-1.04L10 14.168l3.71-3.938a.75.75 0 011.06-.02z"
-				clipRule="evenodd"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+				d="m19.5 8.25-7.5 7.5-7.5-7.5"
 			/>
 		</svg>
 	);
@@ -73,14 +75,16 @@ const Navbar = () => {
 	const upIcon = (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			viewBox="0 0 20 20"
-			fill="currentColor"
+			fill="none"
+			viewBox="0 0 24 24"
+			strokeWidth={1.5}
+			stroke="currentColor"
 			className="w-5 h-5"
 		>
 			<path
-				fillRule="evenodd"
-				d="M5.23 15.79a.75.75 0 01-.02-1.06l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 11-1.08 1.04L10 11.832 6.29 15.77a.75.75 0 01-1.06.02zm0-6a.75.75 0 01-.02-1.06l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 11-1.08 1.04L10 5.832 6.29 9.77a.75.75 0 01-1.06.02z"
-				clipRule="evenodd"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+				d="m4.5 15.75 7.5-7.5 7.5 7.5"
 			/>
 		</svg>
 	);
