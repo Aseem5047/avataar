@@ -89,7 +89,6 @@ const Navbar = () => {
 		</svg>
 	);
 
-	// JSX for the Navbar component
 	return (
 		<>
 			{/* Main container for the Navbar */}
@@ -100,7 +99,7 @@ const Navbar = () => {
 						<img
 							src="/assets/logo.png"
 							alt=""
-							className="h-auto w-32 lg:w-52 "
+							className="h-auto w-32 xl:w-52  "
 						/>
 					</Link>
 					{/* Navigation links */}
