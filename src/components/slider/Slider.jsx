@@ -150,7 +150,7 @@ const Slider = ({ images, loading }) => {
 										<img
 											src={image}
 											alt=""
-											className={`rounded-xl shadow-lg h-full min-h-[200px] sm:min-h-[250px] lg:min-h-[300px] object-cover md:h-full cursor-grab ${
+											className={`rounded-xl shadow-lg h-full min-h-[200px] sm:min-h-[250px] lg:min-h-[275px] object-cover md:h-full cursor-grab ${
 												imagesLoaded
 													? "opacity-100 transition-opacity duration-500 ease-in-out"
 													: "opacity-0"
