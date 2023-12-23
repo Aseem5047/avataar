@@ -21,7 +21,7 @@ function App() {
 					/>
 				</div>
 			) : (
-				<div className="flex flex-col items-center w-full h-screen lg:px-[80px]">
+				<div className="flex flex-col items-center w-full h-screen xl:px-[80px]">
 					{/* Navbar component for navigation */}
 					<Navbar />
 
